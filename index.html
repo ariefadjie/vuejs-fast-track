@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>LiRen | Berbagi Link Keren</title>
+	<link rel="stylesheet" type="text/css" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/style.css">
+</head>
+<body>
+<div class="container">
+	<h1>LiRen</h1>
+	<p>Berbagi Link Keren</p>
+	<div id="liren">
+	<button type="submit" class="btn btn-primary" v-on:click="showForm()" v-if="!formOpened">Add Link</button>
+	<form v-if="formOpened" v-on:submit.prevent="addLink">
+	<legend>Kirim Link Baru</legend>
+	<div class="form-group">
+		<input type="text" class="form-control" v-model="newLink.title" placeholder="Judul">
+	</div>
+	<div class="form-group">
+		<input type="text" class="form-control" v-model="newLink.url" placeholder="http://">
+	</div>
+	<div class="form-group">
+		<input type="text" class="form-control" v-model="newLink.desc" placeholder="Short Description">
+	</div>
+	<div class="form-group">
+		<button type="submit" class="btn btn-primary">Publish</button> <span><a v-on:click="hideForm()">Batal</a></span>
+	</div>
+	</form>
+
+<div class="row" v-if="formOpened">
+	<div class="col-sm-12"><h2>Preview</h2></div>
+	<div class="col-sm-1 text-center">
+		<h2 class="vote">0</h2>
+		<p>
+			<span class="glyphicon glyphicon-arrow-up vote__action"></span>
+			<span class="glyphicon glyphicon-arrow-down vote__action"></span>
+		</p>
+	</div>
+	<div class="col-sm-11 link__content">
+	<h2>
+	<small><a href="{{newLink.url}}">{{newLink.title}}</a></small>
+	</h2>
+	<p>{{newLink.desc}}</p>
+	</div>
+</div><!-- end preview -->
+
+<div class="row" v-for="link in links">
+	<div class="col-sm-1 text-center">
+		<h2 class="vote">{{link.vote}}</h2>
+		<p>
+			<span class="glyphicon glyphicon-arrow-up vote__action" v-on:click="upVote(link)"></span>
+			<span class="glyphicon glyphicon-arrow-down vote__action" v-on:click="downVote(link)"></span>
+		</p>
+	</div>
+	<div class="col-sm-11 link__content">
+	<h2>
+	<small><a href="{{link.url}}">{{link.title}}</a></small>
+	<small class="link_action">
+		<button class="btn btn-xs btn-danger" v-on:click="removeLink(link)">Hapus</button>
+	</small>
+	</h2>
+	<p>{{link.desc}}</p>
+	</div>
+</div>
+
+</div><!--end container -->
+
+<script type="text/javascript" src="/bower_components/vue/dist/vue.min.js"></script>
+<script type="text/javascript" src="/app.js"></script>
+</body>
+</html>

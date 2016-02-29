@@ -1,0 +1,25 @@
+.vote {
+  padding-top: 10px;
+}
+.vote__action {
+  cursor: pointer;
+}
+.vote__action:hover {
+  color: #d9534f;
+}
+.sorter {
+  margin-top: 10px;
+}
+hr {
+  margin-left: 0px;
+  width: 6em;
+  background-color: #CCCCCC;
+  height: .2em;
+  border: none;
+}
+.link__action {
+  display: none;
+}
+.link__content:hover .link__action {
+  display: inline-block;
+}

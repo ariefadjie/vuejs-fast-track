@@ -1,0 +1,21 @@
+{
+  "name": "vuejs-fast-track",
+  "version": "2.0.17",
+  "homepage": "",
+  "description": "belajar vuejs bareng malescast",
+  "authors": [
+    "Arief Adjie Wicaksono"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "vue": "~1.0.10",
+    "bootstrap": "~3.3.6"
+  }
+}
